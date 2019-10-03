@@ -6,8 +6,9 @@ Runs Pronto runners on your Ruby project via GitHub Actions.
 
 | name | description | default |
 | --- | --- | --- |
-| formatters | Space-separated list of pronto formatters to use. See [the pronto README](https://github.com/prontolabs/pronto#github-integration) for more information. | `github_pr github_status` |
-| runners | Space-separated list of pronto runners to run. Must be the preinstalled runners (ruby only). See [the pronto-ruby image](https://github.com/AdWerx/dockerfiles/tree/master/pronto-ruby) for more info. | `pronto-rubocop` |
+| `formatters` | Space-separated list of pronto formatters to use. See [the pronto README](https://github.com/prontolabs/pronto#github-integration) for more information. | `text github_pr github_status` |
+| `runners` | Space-separated list of pronto runners to run. Must be the preinstalled runners (ruby only). See [the pronto-ruby image](https://github.com/AdWerx/dockerfiles/tree/master/pronto-ruby) for more info. | `rubocop` |
+| `target` | The git target pronto will diff against (`-c`) | `origin/master` |
 
 # Secrets
 
