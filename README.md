@@ -11,7 +11,14 @@ Runs Pronto runners on your Ruby project via GitHub Actions.
 
 # Secrets
 
-Please provide `PRONTO_GITHUB_ACCESS_TOKEN` if using a github formatter to post feedback to your GitHub PRs or commit statuses.
+A GitHub token is available by default when using actions, but you must include it in the ENV for pronto to use when commenting on PRs or posting reviews.
+
+Be sure to include the ENV variable in your job step:
+
+```yaml
+env:
+  PRONTO_GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
 
 # Configuration
 
@@ -33,6 +40,8 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - uses: adwerx/pronto-ruby@v1.0
+      env:
+        PRONTO_GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 ```
 
@@ -50,9 +59,21 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - uses: adwerx/pronto-ruby@v1.0
+      env:
+        PRONTO_GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         formatters: >-
           text github_pr github_status
         runners: >-
           rubocop rails_schema yamllint
 ```
+
+# Troubleshooting
+
+**I get a 404 when pronto runs for listing PRs.**
+
+```
+GET https://api.github.com/repos/your/reponame/pulls?per_page=100: 404 - Not Found // See: https://developer.github.com/v3/pulls/#list-pull-requests
+```
+
+You're missing the `PRONTO_GITHUB_ACCESS_TOKEN`. See the [Secrets](#Secrets) section for an explanation.
