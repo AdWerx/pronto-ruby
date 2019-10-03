@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
 
-set -e
+set -eo pipefail
 
-PRONTO_GITHUB_SLUG=$GITHUB_REPOSITORY
-
-pronto run \
-  --exit-code \
-  $@
+pronto run -f json $@ | ./src/process_results

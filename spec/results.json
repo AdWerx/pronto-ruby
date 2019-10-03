@@ -1,0 +1,138 @@
+[
+  {
+    "level": "W",
+    "message": "Style/FrozenStringLiteralComment: Missing magic comment `# frozen_string_literal: true`.",
+    "path": "db/seeds.rb",
+    "line": 1,
+    "commit_sha": "3ce7fede7ce4f3172961bf5df79dbe8d5e2cd6eb",
+    "runner": "Pronto::Rubocop"
+  },
+  {
+    "level": "W",
+    "message": "Layout/AlignHash: Align the elements of a hash literal if they span more than one line.",
+    "path": "lib/anx_api/anx_line_item_video_daily_stats_report.rb",
+    "line": 9,
+    "commit_sha": "38c8aec9b83180656f9ca6be235f2c5cabc2a1d3",
+    "runner": "Pronto::Rubocop"
+  },
+  {
+    "level": "W",
+    "message": "Metrics/LineLength: Line is too long. [107/100]",
+    "path": "lib/anx_api/anx_line_item_video_daily_stats_report.rb",
+    "line": 9,
+    "commit_sha": "38c8aec9b83180656f9ca6be235f2c5cabc2a1d3",
+    "runner": "Pronto::Rubocop"
+  },
+  {
+    "level": "W",
+    "message": "Layout/AlignHash: Align the elements of a hash literal if they span more than one line.",
+    "path": "lib/anx_api/anx_line_item_video_daily_stats_report.rb",
+    "line": 10,
+    "commit_sha": "38c8aec9b83180656f9ca6be235f2c5cabc2a1d3",
+    "runner": "Pronto::Rubocop"
+  },
+  {
+    "level": "W",
+    "message": "Metrics/LineLength: Line is too long. [107/100]",
+    "path": "lib/anx_api/anx_line_item_video_daily_stats_report.rb",
+    "line": 10,
+    "commit_sha": "38c8aec9b83180656f9ca6be235f2c5cabc2a1d3",
+    "runner": "Pronto::Rubocop"
+  },
+  {
+    "level": "W",
+    "message": "Layout/AlignHash: Align the elements of a hash literal if they span more than one line.",
+    "path": "lib/anx_api/anx_line_item_video_daily_stats_report.rb",
+    "line": 11,
+    "commit_sha": "38c8aec9b83180656f9ca6be235f2c5cabc2a1d3",
+    "runner": "Pronto::Rubocop"
+  },
+  {
+    "level": "W",
+    "message": "Metrics/LineLength: Line is too long. [106/100]",
+    "path": "lib/anx_api/anx_line_item_video_daily_stats_report.rb",
+    "line": 11,
+    "commit_sha": "38c8aec9b83180656f9ca6be235f2c5cabc2a1d3",
+    "runner": "Pronto::Rubocop"
+  },
+  {
+    "level": "W",
+    "message": "Layout/AlignHash: Align the elements of a hash literal if they span more than one line.",
+    "path": "lib/anx_api/anx_line_item_video_daily_stats_report.rb",
+    "line": 12,
+    "commit_sha": "38c8aec9b83180656f9ca6be235f2c5cabc2a1d3",
+    "runner": "Pronto::Rubocop"
+  },
+  {
+    "level": "W",
+    "message": "Metrics/LineLength: Line is too long. [107/100]",
+    "path": "lib/anx_api/anx_line_item_video_daily_stats_report.rb",
+    "line": 12,
+    "commit_sha": "38c8aec9b83180656f9ca6be235f2c5cabc2a1d3",
+    "runner": "Pronto::Rubocop"
+  },
+  {
+    "level": "W",
+    "message": "Layout/AlignHash: Align the elements of a hash literal if they span more than one line.",
+    "path": "lib/anx_api/anx_line_item_video_daily_stats_report.rb",
+    "line": 13,
+    "commit_sha": "38c8aec9b83180656f9ca6be235f2c5cabc2a1d3",
+    "runner": "Pronto::Rubocop"
+  },
+  {
+    "level": "W",
+    "message": "Metrics/LineLength: Line is too long. [106/100]",
+    "path": "lib/anx_api/anx_line_item_video_daily_stats_report.rb",
+    "line": 13,
+    "commit_sha": "38c8aec9b83180656f9ca6be235f2c5cabc2a1d3",
+    "runner": "Pronto::Rubocop"
+  },
+  {
+    "level": "W",
+    "message": "Metrics/AbcSize: Assignment Branch Condition size for _process_report_data is too high. [50.89/20]",
+    "path": "lib/anx_api/anx_line_item_video_daily_stats_report.rb",
+    "line": 56,
+    "commit_sha": "38c8aec9b83180656f9ca6be235f2c5cabc2a1d3",
+    "runner": "Pronto::Rubocop"
+  },
+  {
+    "level": "W",
+    "message": "Style/RescueStandardError: Avoid rescuing without specifying an error class.",
+    "path": "lib/anx_api/anx_line_item_video_daily_stats_report.rb",
+    "line": 150,
+    "commit_sha": "38c8aec9b83180656f9ca6be235f2c5cabc2a1d3",
+    "runner": "Pronto::Rubocop"
+  },
+  {
+    "level": "W",
+    "message": "Metrics/LineLength: Line is too long. [104/100]",
+    "path": "lib/anx_network_report_utils_module.rb",
+    "line": 35,
+    "commit_sha": "38c8aec9b83180656f9ca6be235f2c5cabc2a1d3",
+    "runner": "Pronto::Rubocop"
+  },
+  {
+    "level": "W",
+    "message": "Metrics/LineLength: Line is too long. [107/100]",
+    "path": "lib/anx_network_report_utils_module.rb",
+    "line": 37,
+    "commit_sha": "38c8aec9b83180656f9ca6be235f2c5cabc2a1d3",
+    "runner": "Pronto::Rubocop"
+  },
+  {
+    "level": "W",
+    "message": "Layout/EmptyLineAfterGuardClause: Add empty line after guard clause.",
+    "path": "lib/anx_network_report_utils_module.rb",
+    "line": 130,
+    "commit_sha": "38c8aec9b83180656f9ca6be235f2c5cabc2a1d3",
+    "runner": "Pronto::Rubocop"
+  },
+  {
+    "level": "W",
+    "message": "Layout/EmptyLineAfterGuardClause: Add empty line after guard clause.",
+    "path": "lib/patches/seed.rb",
+    "line": 28,
+    "commit_sha": "3ce7fede7ce4f3172961bf5df79dbe8d5e2cd6eb",
+    "runner": "Pronto::Rubocop"
+  }
+]
