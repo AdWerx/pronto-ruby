@@ -11,7 +11,7 @@ inputs:
       See [the pronto README](https://github.com/prontolabs/pronto#github-integration)
       for more information.
     required: false
-    default: github_pr github_status
+    default: text github_pr github_status
   runners:
     description: >-
       Space-separated list of pronto runners to run.
@@ -19,10 +19,6 @@ inputs:
     required: false
     default: >-
       pronto-rubocop
-      pronto-brakeman
-      pronto-bundler_audit
-      pronto-rails_best_practices
-      pronto-rails_schema
   target:
     description: >-
       The git object to diff against when running pronto. Use this if you have a
@@ -37,7 +33,7 @@ runs:
   image: Dockerfile
   args:
     - -f
-    - text ${{ inputs.formatters }}
+    - ${{ inputs.formatters }}
     - -r
     - ${{ inputs.runners }}
     - -c
