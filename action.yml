@@ -1,0 +1,44 @@
+name: Pronto
+author: jbielick@adwerx.com
+description: Your all-in-one Pronto ruby code review automation.
+branding:
+  icon: code
+  color: red
+inputs:
+  formatters: # id of input
+    description: |-
+      Space-separated list of pronto formatters to use.
+      See [the pronto README](https://github.com/prontolabs/pronto#github-integration)
+      for more information.
+    required: false
+    default: github_pr github_status
+  runners:
+    description: |-
+      Space-separated list of pronto runners to run.
+      Must be the preinstalled runners (ruby only).
+    required: false
+    default: |-
+      pronto-rubocop
+      pronto-brakeman
+      pronto-bundler_audit
+      pronto-rails_best_practices
+      pronto-rails_schema
+  target:
+    description: |-
+      The git object to diff against when running pronto. Use this if you have a
+      specific branch you'd like to always use as a target for the diff to be reviewed
+      and that branch is not master. This defaults to origin/master or the target
+      of the pull request being opened (when the event is pull_request).
+    required: false
+    default: |-
+      origin/master
+runs:
+  using: docker
+  image: Dockerfile
+  args:
+    - -f
+    - text ${{ inputs.formatters }}
+    - -r
+    - ${{ inputs.runners }}
+    - -c
+    - ${{ inputs.target }}
