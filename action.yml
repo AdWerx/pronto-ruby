@@ -18,7 +18,7 @@ inputs:
       Must be the preinstalled runners (ruby only).
     required: false
     default: >-
-      pronto-rubocop
+      rubocop
   target:
     description: >-
       The git object to diff against when running pronto. Use this if you have a
