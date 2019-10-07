@@ -4,4 +4,4 @@ set -eo pipefail
 
 cd $RUNNER_WORKSPACE
 
-pronto run -f json $@ | /runner/process_results
+pronto run -f json $@
