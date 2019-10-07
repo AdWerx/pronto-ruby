@@ -4,6 +4,6 @@ COPY entrypoint.sh /entrypoint.sh
 
 COPY ./ /runner
 
-ENV RUNNER_WORKSPACE /runner
+ENV GITHUB_WORKSPACE /runner
 
 ENTRYPOINT [ "/entrypoint.sh" ]
