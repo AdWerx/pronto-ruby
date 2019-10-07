@@ -15,7 +15,7 @@ RSpec.describe ProcessResults do
           event: JSON.parse(File.read('spec/event.json')),
           sha: 'ab2c4e',
           workspace: '/github/repo/workspace',
-          action: 'Pronto',
+          action: 'adwerx/pronto-ruby',
         )
         post_stub = stub_request(
           :post,
@@ -23,7 +23,7 @@ RSpec.describe ProcessResults do
         ).with do |request|
           data = JSON.parse(request.body)
           expect(data['head_sha']).to eq metadata.sha
-          expect(data['name']).to eq metadata.action
+          expect(data['name']).to eq 'Pronto'
         end.to_return(status: 201, body: '{"id": 1}', headers: {})
 
         patch_stub = stub_request(
@@ -32,6 +32,7 @@ RSpec.describe ProcessResults do
         ).with do |request|
           data = JSON.parse(request.body)
           expect(data['conclusion']).to eq 'failure'
+          expect(data['output']['title']).to eq 'Pronto'
           expect(data['output']['annotations'].size).to eq 17
         end.to_return(status: 200, body: '{}', headers: {})
 
@@ -51,7 +52,7 @@ RSpec.describe ProcessResults do
           event: JSON.parse(File.read('spec/event.json')),
           sha: 'ab2c4e',
           workspace: '/github/repo/workspace',
-          action: 'Pronto',
+          action: 'adwerx/pronto-ruby',
         )
         post_stub = stub_request(
           :post,
@@ -59,7 +60,7 @@ RSpec.describe ProcessResults do
         ).with do |request|
           data = JSON.parse(request.body)
           expect(data['head_sha']).to eq metadata.sha
-          expect(data['name']).to eq metadata.action
+          expect(data['name']).to eq 'Pronto'
         end.to_return(status: 201, body: '{"id": 1}', headers: {})
 
         patch_stub = stub_request(
@@ -68,6 +69,7 @@ RSpec.describe ProcessResults do
         ).with do |request|
           data = JSON.parse(request.body)
           expect(data['conclusion']).to eq 'success'
+          expect(data['output']['title']).to eq 'Pronto'
           expect(data['output']['annotations'].size).to eq 0
         end.to_return(status: 200, body: '{}', headers: {})
 

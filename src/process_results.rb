@@ -13,7 +13,7 @@ class ProcessResults
     @metadata = metadata
     @results_io = results_io
     @output = OpenStruct.new(
-      title: NAME,
+      title: 'Pronto',
       summary: '',
       text: '',
       annotations: [],

@@ -5,8 +5,6 @@ require 'time'
 
 class CheckRun
 
-  NAME = 'Pronto Ruby'.freeze
-
   attr_accessor :metadata,
                 :id
 
@@ -20,7 +18,7 @@ class CheckRun
 
   def create
     body = {
-      name: NAME,
+      name: 'Pronto',
       head_sha: metadata.sha,
       status: :in_progress,
       started_at: Time.now.iso8601,
