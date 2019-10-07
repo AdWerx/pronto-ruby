@@ -1,6 +1,9 @@
 # Description
 
-Runs Pronto runners on your Ruby project via GitHub Actions.
+Runs Pronto runners on your Ruby project via GitHub Actions and reports back with a GitHub Check Run.
+
+![](static/1.png)
+
 
 # Inputs
 
@@ -26,12 +29,13 @@ Pronto can be configured via the `.pronto.yml` configuration file in your repo.
 
 # Example
 
-With the defaults:
+With the defaults (only rubocop):
 
 ```yaml
 name: Build
 
 on:
+  - push
   - pull_request
 
 jobs:
@@ -51,6 +55,7 @@ With specific runners:
 name: Build
 
 on:
+  - push
   - pull_request
 
 jobs:
