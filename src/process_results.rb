@@ -13,7 +13,7 @@ class ProcessResults
     @metadata = metadata
     @results_io = results_io
     @output = OpenStruct.new(
-      title: metadata.action,
+      title: NAME,
       summary: '',
       text: '',
       annotations: [],
@@ -59,7 +59,6 @@ class ProcessResults
     output['summary'] = <<~TXT
       There are #{output.annotations.size} issues raised by pronto runners.
     TXT
-    output['text'] = ''
     if output.annotations.any?
       :failure
     else
@@ -86,6 +85,23 @@ class ProcessResults
       workspace: ENV.fetch('GITHUB_WORKSPACE'),
       action: ENV.fetch('GITHUB_ACTION'),
     )
+  end
+
+  def print
+    annotation_text = annotations.each_with_object('') do |annotation, text|
+      text += <<~MSG
+#{annotation[:title]} #{annotation[:annotation_level]}
+#{annotation[:path]}:#{annotation[:start_line]}
+
+#{annotation[:message}]}
+      MSG
+    end
+    puts <<~MSG
+#{output.title}
+---
+#{output.summary}
+#{annotation_text.join("\n-")}
+    MSG
   end
 
 end
