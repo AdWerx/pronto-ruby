@@ -1,4 +1,6 @@
 #!/usr/bin/ruby
 
+require_relative './process_results'
+
 result = ProcessResults.run
 exit(1) unless result.success?

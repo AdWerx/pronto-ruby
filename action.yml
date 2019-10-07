@@ -5,13 +5,6 @@ branding:
   icon: code
   color: red
 inputs:
-  # formatters:
-  #   description: >-
-  #     Space-separated list of pronto formatters to use.
-  #     See [the pronto README](https://github.com/prontolabs/pronto#github-integration)
-  #     for more information.
-  #   required: false
-  #   default: text github_pr github_status
   runners:
     description: >-
       Space-separated list of pronto runners to run.
@@ -32,8 +25,6 @@ runs:
   using: docker
   image: Dockerfile
   args:
-    - -f
-    - ${{ inputs.formatters }}
     - -r
     - ${{ inputs.runners }}
     - -c

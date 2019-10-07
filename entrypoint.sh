@@ -2,4 +2,6 @@
 
 set -eo pipefail
 
-pronto run -f json $@ | ./src/process_results
+cd $RUNNER_WORKSPACE
+
+pronto run -f json $@ | /runner/process_results
