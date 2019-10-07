@@ -5,6 +5,8 @@ require 'time'
 
 class CheckRun
 
+  NAME = 'Pronto Ruby'.freeze
+
   attr_accessor :metadata,
                 :id
 
@@ -13,17 +15,12 @@ class CheckRun
   end
 
   def path
-    [
-      "/repos",
-      metadata.repo_fullname,
-      "check-runs",
-      id
-    ].compact.join('/')
+    ['/repos', metadata.repo_fullname, 'check-runs', id].compact.join('/')
   end
 
   def create
     body = {
-      name: metadata.action,
+      name: NAME,
       head_sha: metadata.sha,
       status: :in_progress,
       started_at: Time.now.iso8601,
@@ -36,8 +33,6 @@ class CheckRun
 
   def complete(conclusion:, output:)
     body = {
-      name: metadata.action,
-      head_sha: metadata.sha,
       conclusion: conclusion,
       output: output,
       status: :completed,
