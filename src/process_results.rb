@@ -38,6 +38,23 @@ class ProcessResults
     conclusion == :success
   end
 
+  def print
+    annotation_text = annotations.each_with_object('') do |annotation, text|
+      text += <<~MSG
+#{annotation[:title]} #{annotation[:annotation_level]}
+#{annotation[:path]}:#{annotation[:start_line]}
+
+#{annotation[:message]}
+      MSG
+    end
+    puts <<~MSG
+#{output.title}
+---
+#{output.summary}
+#{annotation_text.join("\n-")}
+    MSG
+  end
+
   private
 
   def check_run
@@ -85,23 +102,6 @@ class ProcessResults
       workspace: ENV.fetch('GITHUB_WORKSPACE'),
       action: ENV.fetch('GITHUB_ACTION'),
     )
-  end
-
-  def print
-    annotation_text = annotations.each_with_object('') do |annotation, text|
-      text += <<~MSG
-#{annotation[:title]} #{annotation[:annotation_level]}
-#{annotation[:path]}:#{annotation[:start_line]}
-
-#{annotation[:message]}
-      MSG
-    end
-    puts <<~MSG
-#{output.title}
----
-#{output.summary}
-#{annotation_text.join("\n-")}
-    MSG
   end
 
 end
