@@ -39,19 +39,19 @@ class ProcessResults
   end
 
   def print
-    annotation_text = annotations.each_with_object('') do |annotation, text|
-      text += <<~MSG
+    annotation_text = output.annotations.map do |annotation|
+      <<~MSG
 #{annotation[:title]} #{annotation[:annotation_level]}
 #{annotation[:path]}:#{annotation[:start_line]}
 
 #{annotation[:message]}
       MSG
     end
-    puts <<~MSG
+    STDERR.puts <<~MSG
 #{output.title}
 ---
 #{output.summary}
-#{annotation_text.join("\n-")}
+#{annotation_text.join("\n-\n")}
     MSG
   end
 
