@@ -93,7 +93,7 @@ class ProcessResults
 #{annotation[:title]} #{annotation[:annotation_level]}
 #{annotation[:path]}:#{annotation[:start_line]}
 
-#{annotation[:message}]}
+#{annotation[:message]}
       MSG
     end
     puts <<~MSG
