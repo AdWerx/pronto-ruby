@@ -1,9 +1,24 @@
-# Description
+Your all-in-one ruby Pronto runner.
 
-Runs Pronto runners on your Ruby project via GitHub Actions and reports back with a GitHub Check Run.
+This [GitHub Action](https://github.com/features/actions) runs [Pronto](https://github.com/prontolabs/pronto) [runners](https://github.com/prontolabs/pronto#runners) on your Ruby project diffs and reports back with a [GitHub Check Run](https://developer.github.com/apps/quickstart-guides/creating-ci-tests-with-the-checks-api/).
 
 ![](static/1.png)
 
+# Runners
+
+The docker image of this Action includes the following [Pronto Runners](https://github.com/prontolabs/pronto#runners):
+
+- brakeman
+- bundler_audit
+- fasterer
+- flay
+- poper
+- rails_best_practices
+- rails_schema
+- reek
+- rubocop
+- scss
+- yamllint
 
 # Inputs
 
@@ -14,14 +29,17 @@ Runs Pronto runners on your Ruby project via GitHub Actions and reports back wit
 
 # Secrets
 
-A GitHub token is available by default when using actions, but you must include it in the ENV hash for this Action to use when creating check runs.
+A GitHub token is available by default when using actions, but you must include it in the `env` map for this Action to use when creating a check run.
 
 Be sure to include the ENV variable in your job step:
 
 ```yaml
-env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - uses: adwerx/pronto-ruby
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
+
+That's it!
 
 # Configuration
 
