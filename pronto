@@ -2,6 +2,7 @@
 
 require 'pronto'
 require 'pronto/cli'
+$LOAD_PATH.push(__dir__)
 require 'src/github_action_check_run_formatter'
 
 Dir.chdir(ENV.fetch('GITHUB_WORKSPACE')) do
