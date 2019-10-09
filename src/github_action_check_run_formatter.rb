@@ -80,10 +80,6 @@ module Pronto
                        end
       end
 
-      def no_line_annotations
-        annotations.reject(&:line?)
-      end
-
       def messages_by_runner
         @messages_by_runner ||= messages.uniq.group_by(&:runner)
       end

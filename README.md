@@ -91,6 +91,6 @@ jobs:
           rubocop rails_schema yamllint
 ```
 
-# Development / Contributions
+### Development / Contributions
 
 See [CONTRIBUTING.md](./CONTRIBUTING.md)
