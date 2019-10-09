@@ -41,7 +41,11 @@ module Pronto
           annotations: line_annotations.map(&:to_h),
         )
         if no_line_annotations.any?
-          output.text = no_line_annotations.map(&:to_markdown_s).join("\n")
+          output.text = <<~TXT
+| sha | level | message |
+| --- | --- | --- |
+#{no_line_annotations.map(&:to_markdown_s).join("\n")}
+          TXT
         end
         client.create_check_run(
           repo_slug,

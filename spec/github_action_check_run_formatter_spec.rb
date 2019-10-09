@@ -144,11 +144,8 @@ RSpec.describe Pronto::Formatter::GithubActionCheckRunFormatter do
         expect(data.dig('output', 'text')).to eq(<<~TXT)
           | sha | level | message |
           | --- | --- | --- |
-          | `b00b0a` | `warning` | Git commit message should start with a capital letter |
-
-          | sha | level | message |
-          | --- | --- | --- |
-          | `7cb7f4` | `warning` | Git commit message should start with a capital letter |
+          | `b00b0a8` | `warning` | Git commit message should start with a capital letter |
+          | `7cb7f40` | `warning` | Git commit message should start with a capital letter |
         TXT
       end
     ).to have_been_made

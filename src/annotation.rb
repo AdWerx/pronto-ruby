@@ -23,11 +23,7 @@ class Annotation
   end
 
   def to_markdown_s
-    <<~MARKDOWN
-      | sha | level | message |
-      | --- | --- | --- |
-      | `#{message.commit_sha[0,6]}` | `#{message.level}` | #{message.msg} |
-    MARKDOWN
+    "| `#{message.commit_sha[0,7]}` | `#{message.level}` | #{message.msg} |"
   end
 
   def level_for(pronto_level)
