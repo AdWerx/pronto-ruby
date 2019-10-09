@@ -2,7 +2,9 @@ Your all-in-one ruby Pronto runner.
 
 This [GitHub Action](https://github.com/features/actions) runs [Pronto](https://github.com/prontolabs/pronto) [runners](https://github.com/prontolabs/pronto#runners) on your Ruby project diffs and reports back with a [GitHub Check Run](https://developer.github.com/apps/quickstart-guides/creating-ci-tests-with-the-checks-api/).
 
-![](static/1.png)
+![check runs](static/checkrun.png)
+
+![annotations](static/annotations.png)
 
 # Runners
 
