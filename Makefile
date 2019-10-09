@@ -13,4 +13,7 @@ tag: image
 push: tag
 	docker push ${name}:${TAG}
 
+console:
+	docker run -v "$(pwd):/runner" -t --entrypoint '' --rm ${name} bash
+
 .PHONY: image tag push
