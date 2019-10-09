@@ -70,5 +70,17 @@
     "line": 50,
     "commit_sha": "64347e8776c393c344bafec964ab6b234d40f089",
     "runner": "Pronto::Rubocop"
+  },
+  {
+    "level": "W",
+    "message": "Consider writing a more detailed, not as generic, commit message",
+    "commit_sha": "ab39071bcc99ab3c1e37eeb76396ce519c3914e1",
+    "runner": "Pronto::Poper"
+  },
+  {
+    "level": "W",
+    "message": "Git commit message summary (first line) should be 50 chars or less",
+    "commit_sha": "387760c6c841cca1f7128a2ccf4bb3ce13d52327",
+    "runner": "Pronto::Poper"
   }
 ]

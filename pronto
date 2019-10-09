@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+require 'pronto'
+require 'pronto/cli'
+require 'src/github_action_check_run_formatter'
+
+Dir.chdir(ENV.fetch('GITHUB_WORKSPACE')) do
+  Pronto::CLI.start
+end

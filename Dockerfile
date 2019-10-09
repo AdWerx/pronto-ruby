@@ -1,9 +1,13 @@
-FROM adwerx/pronto-ruby:1.1.0
+FROM adwerx/pronto-ruby:1.2.0
 
-COPY entrypoint.sh /entrypoint.sh
-
-COPY ./ /runner
+WORKDIR /runner
 
 ENV GITHUB_WORKSPACE /runner
 
-ENTRYPOINT [ "/entrypoint.sh" ]
+COPY Gemfile Gemfile.lock ./
+
+RUN bundle
+
+COPY . ./
+
+ENTRYPOINT ["/runner/pronto"]

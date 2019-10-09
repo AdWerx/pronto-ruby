@@ -1,7 +1,0 @@
-#!/usr/bin/ruby
-
-require_relative './process_results'
-
-result = ProcessResults.run
-result.print
-exit(1) unless result.success?
