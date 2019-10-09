@@ -52,14 +52,14 @@ Pronto can be configured via the `.pronto.yml` configuration file in your repo.
 With the defaults (only rubocop):
 
 ```yaml
-name: Build
+name: Pronto
 
 on:
   - push
   - pull_request
 
 jobs:
-  pronto:
+  run:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
@@ -72,14 +72,14 @@ jobs:
 With specific runners:
 
 ```yaml
-name: Build
+name: Pronto
 
 on:
   - push
   - pull_request
 
 jobs:
-  pronto:
+  run:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
