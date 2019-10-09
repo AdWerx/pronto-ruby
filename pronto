@@ -5,11 +5,29 @@ require 'pronto/cli'
 $LOAD_PATH.push(__dir__)
 require 'src/github_action_check_run_formatter'
 
+# github action inputs can only be strings, so when we passes the runners
+# list to this container, github passes container command args quoted like this:
+# `docker run ...  "run" "-r" "rubocop rails_schema" ...`
+# and this fails parsing by thor with:
+# `require': cannot load such file -- pronto/rubocop rails_schema (LoadError)`
+# so the couple lines below turn ARGV like this:
+# ```
+# run
+# -r
+# rubocop rails_schema
+# ````
+#
+# into this:
+#
+# ```
+# run
+# -r
+# rubocop
+# rails_schema
+# ```
+#
+# which works correctly
 runners_index = ARGV.index('-r') + 1
-# github passes args quoted like:
-# pronto "run" "-r" "rubocop yamllint"
-# and this fails parsing by thor
-# `require': cannot load such file -- pronto/rubocop rails_schema (LoadError)
 ARGV.insert(runners_index, ARGV.delete_at(runners_index).split(' '))
 
 Dir.chdir(ENV.fetch('GITHUB_WORKSPACE')) do
