@@ -30,3 +30,6 @@ runs:
     - ${{ inputs.runners }}
     - -c
     - ${{ inputs.target }}
+    - -f
+    - text
+    - github_action_check_run
