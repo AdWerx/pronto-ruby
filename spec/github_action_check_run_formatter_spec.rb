@@ -19,7 +19,7 @@ RSpec.describe Pronto::Formatter::GithubActionCheckRunFormatter do
     Dir.chdir('spec/fixtures/test.git') do
       Pronto::CLI.start(%w(
         run
-        -r rubocop yamllint
+        -r rubocop yamllint poper
         -f github_action_check_run
       ))
     end
@@ -103,6 +103,7 @@ RSpec.describe Pronto::Formatter::GithubActionCheckRunFormatter do
         expect(data.dig('output', 'summary')).to match(/There are 3 issues/)
         expect(data.dig('output', 'annotations').size).to eq 3
         expect(data.dig('status')).to eq 'completed'
+        expect(data.dig('conclusion')).to eq 'failure'
         expect(data.dig('output', 'annotations')).to eq([
           {
             "annotation_level"=>"warning",
@@ -129,6 +130,26 @@ RSpec.describe Pronto::Formatter::GithubActionCheckRunFormatter do
             "title"=>"yamllint_runner"
           }
         ])
+      end
+    ).to have_been_made
+    expect(
+      a_request(:post, "https://api.github.com/repos/Codertocat/Hello-World/check-runs").with do |request|
+        data = JSON.parse(request.body)
+        next unless data['name'] == 'poper'
+        expect(data.dig('output', 'summary')).to match(/There are 2 issues/)
+        # these messages aren't attributed to a line, so we put them in the Details section
+        expect(data.dig('output', 'annotations').size).to eq 0
+        expect(data.dig('status')).to eq 'completed'
+        expect(data.dig('conclusion')).to eq 'failure'
+        expect(data.dig('output', 'text')).to eq(<<~TXT)
+          | sha | level | message |
+          | --- | --- | --- |
+          | `b00b0a` | `warning` | Git commit message should start with a capital letter |
+
+          | sha | level | message |
+          | --- | --- | --- |
+          | `7cb7f4` | `warning` | Git commit message should start with a capital letter |
+        TXT
       end
     ).to have_been_made
   end

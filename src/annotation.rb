@@ -24,10 +24,9 @@ class Annotation
 
   def to_markdown_s
     <<~MARKDOWN
-**#{message.runner.title}**
-```
-#{message.msg}
-```
+      | sha | level | message |
+      | --- | --- | --- |
+      | `#{message.commit_sha[0,6]}` | `#{message.level}` | #{message.msg} |
     MARKDOWN
   end
 
