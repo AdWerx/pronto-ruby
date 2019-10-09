@@ -1,16 +1,16 @@
-repo=adwerx/pronto-ruby-action
+name=adwerx/pronto-ruby-action
 
 image:
-	docker build . -t ${repo}
+	docker build . -t ${name}
 
-test: image
-	docker run -t --entrypoint '' --rm adwerx/pronto-ruby-action rspec
+test:
+	docker run -v "$(pwd):/runner" -t --entrypoint '' --rm ${name} rspec
 
 tag: image
-	docker tag ${repo} ${repo}:${TAG}
-	docker tag ${repo} ${repo}:latest
+	docker tag ${name} ${name}:${TAG}
+	docker tag ${name} ${name}:latest
 
 push: tag
-	docker push ${repo}:${TAG}
+	docker push ${name}:${TAG}
 
 .PHONY: image tag push
