@@ -26,7 +26,7 @@ The docker image of this Action includes the following [Pronto Runners](https://
 
 | name | description | default |
 | --- | --- | --- |
-| `runners` | Space-separated list of pronto runners to run. Must be the preinstalled runners (ruby only). See [the pronto-ruby image](https://github.com/AdWerx/dockerfiles/tree/master/pronto-ruby) for more info. | `rubocop` |
+| `runners` | Space-separated list of pronto runners to run. Must be the preinstalled runners from the list above. | `rubocop` |
 | `target` | The git target pronto will diff against (`-c`) | `origin/master` |
 
 # Secrets
