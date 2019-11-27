@@ -1,10 +1,13 @@
 name=adwerx/pronto-ruby-action
 
 image:
-	docker build . -t ${name}
+	docker build -f Dockerfile.action . -t ${name}
 
-test:
-	docker run -v "$(pwd):/runner" -t --entrypoint '' --rm ${name} rspec
+test: spec/fixtures/test.git
+	docker run -v "${CURDIR}:/runner" --entrypoint ./dev_entrypoint.sh --rm ${name} rspec
+
+spec/fixtures/test.git:
+	tar -zxf spec/fixtures/test.git.tar.gz
 
 tag: image
 	docker tag ${name} ${name}:${TAG}
@@ -13,7 +16,7 @@ tag: image
 push: tag
 	docker push ${name}:${TAG}
 
-console:
-	docker run -v "$(pwd):/runner" -t --entrypoint '' --rm ${name} bash
+console: spec/fixtures/test.git
+	docker run -it -v "${CURDIR}:/runner" --entrypoint ./dev_entrypoint.sh --rm ${name} bash
 
 .PHONY: image tag push
