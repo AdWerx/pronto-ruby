@@ -23,7 +23,7 @@ inputs:
       origin/master
 runs:
   using: docker
-  image: Dockerfile.action
+  image: ./Dockerfile.action
   args:
     - run
     - -r
