@@ -1,7 +1,10 @@
 name=adwerx/pronto-ruby-action
 
+base:
+	docker build -f Dockerfile.base -t adwerx/pronto-ruby .
+
 image:
-	docker build -f Dockerfile.action . -t ${name}
+	docker build -f Dockerfile . -t ${name}
 
 test: spec/fixtures/test.git
 	docker run -v "${CURDIR}:/runner" --entrypoint ./dev_entrypoint.sh --rm ${name} rspec

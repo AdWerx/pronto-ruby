@@ -1,4 +1,4 @@
-FROM adwerx/pronto-ruby:1.3.2
+FROM adwerx/pronto-ruby:1.4.0
 
 WORKDIR /runner
 

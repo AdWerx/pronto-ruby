@@ -1,3 +1,8 @@
+2.1.0 | 2019-12-20
+---
+
+ * Upgrades pronto-bundler_audit to 0.6.0
+
 2.0.0 | 2019-12-18
 ---
 
