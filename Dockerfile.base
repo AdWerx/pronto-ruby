@@ -14,7 +14,7 @@ RUN gem install pronto
 
 ENV RUNNERS pronto-rubocop:0.10.0 \
   pronto-brakeman:0.10.0 \
-  pronto-bundler_audit:0.5.0 \
+  pronto-bundler_audit:0.6.0 \
   pronto-rails_best_practices:0.10.0 \
   pronto-rails_schema:0.10.0 \
   pronto-poper:0.10.0  \
