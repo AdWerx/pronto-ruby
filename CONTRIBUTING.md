@@ -10,9 +10,13 @@ See the `Makefile` for more information.
 
 # Base image
 
-The image for this Action container is based on `adwerx/pronto-ruby`. Since GitHub Actions build the container on the spot when they're running, we move the expensive building of the pronto runners and apt packages to a base image. That way, the large, base image can be downloaded and only the small modifications in this Action can be layered on top. This results in a faster GitHub Action run.
+The ruby and pronto installation is done in the `Dockerfile.base` container image. Thus, pronto and runners are portable and can be run easily locally or otherwise. The code and formatter for the GitHub Action itself are added in a subsequent container image, built by `Dockerfile`. This container image is built during the GitHub action run. That way, the large, base image can be downloaded and only the small modifications in this Action can be layered on top. This results in a faster GitHub Action run.
 
-To make modifications to the linux environment (tooling) or installed runners in this image, please do so in [`adwerx/dockerfiles`](https://github.com/AdWerx/dockerfiles/tree/master/pronto-ruby). The pronto-ruby base image is built from there and this repo will only need a tag update.
+To make modifications to the linux environment (tooling) or installed runners in this image, please do so in `Dockerfile.base`. After making modifications, a tag of `base-vX.X.X` should be created to trigger a dockerhub build.
+
+Once the new base image is built and available in dockerhub, the `FROM` line in `Dockerfile` can be updated to point to it.
+
+Finally, create a release through GitHub's UI with a version bump and include CHANGELOG details in the release description.
 
 # Tests
 
