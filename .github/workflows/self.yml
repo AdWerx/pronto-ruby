@@ -1,0 +1,17 @@
+name: Pronto
+
+on:
+  - push
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Pronto Run
+      uses: adwerx/pronto-ruby@v2.1.1
+      # with:
+      #   runners: >-
+      #     rubocop bundler_audit rails_schema brakeman
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
