@@ -17,6 +17,14 @@ gem 'pronto-fasterer', '~> 0.10'
 gem 'pronto-scss', '~> 0.10'
 gem 'pronto-erb_lint', '~> 0.1'
 
+gem 'rubocop-performance', require: false
+gem 'rubocop-minitest', require: false
+gem 'rubocop-rspec', require: false
+gem 'rubocop-rails', require: false
+gem 'rubocop-thread_safety', require: false
+gem 'rubocop-i18n', require: false
+gem 'rubocop-rake', require: false
+
 group :test do
   gem 'climate_control'
   gem 'rspec'
