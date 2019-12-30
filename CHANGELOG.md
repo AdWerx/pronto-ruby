@@ -1,3 +1,19 @@
+2.2.0 | 2019-12-30
+---
+
+Consolidates the docker image (base vs. action) and adds several rubocop extensions.
+
+ * Adds the following rubocop extensions to the docker image:
+   * rubocop-performance
+   * rubocop-minitest
+   * rubocop-rspec
+   * rubocop-rails
+   * rubocop-thread_safety
+   * rubocop-i18n
+   * rubocop-rake
+
+These extensions can now be `require`d in a `.rubocop.yml` config and used with the rubocop runner.
+
 2.1.1 | 2019-12-30
 ---
 
