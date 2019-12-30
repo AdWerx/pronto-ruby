@@ -1,3 +1,8 @@
+2.1.1 | 2019-12-30
+---
+
+ * Corrects a published bad image build of adwerx/pronto-ruby:1.4.0 (base image)
+
 2.1.0 | 2019-12-20
 ---
 
