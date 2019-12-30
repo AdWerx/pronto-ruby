@@ -9,7 +9,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Pronto Run
-      uses: adwerx/pronto-ruby@v2.1.1
+      uses: ./
       # with:
       #   runners: >-
       #     rubocop bundler_audit rails_schema brakeman
