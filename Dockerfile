@@ -1,9 +1,26 @@
-FROM adwerx/pronto-ruby:1.4.1
+FROM ruby:2.5
 
-WORKDIR /runner
+LABEL maintainer="Josh Bielick <jbielick@adwerx.com>"
 
-ENV GITHUB_WORKSPACE /runner
+RUN apt-get update && \
+  apt-get install -y \
+  bash \
+  ruby-dev \
+  build-essential \
+  cmake \
+  git \
+  openssl \
+  yamllint \
+  && rm -rf /var/lib/apt/lists/*
 
-COPY . ./
+WORKDIR /data
+
+COPY Gemfile* ./
+
+RUN bundle --jobs 2 --retry 4
+
+ENV PATH $GEM_HOME/bin:$BUNDLE_PATH/gems/bin:$PATH
+
+COPY . /runner
 
 ENTRYPOINT ["/runner/pronto"]

@@ -1,9 +1,9 @@
 #!/usr/bin/env ruby
 
+require 'bundler/setup'
 require 'pronto'
 require 'pronto/cli'
-$LOAD_PATH.push(__dir__)
-require 'src/github_action_check_run_formatter'
+require_relative './src/github_action_check_run_formatter'
 
 # github action inputs can only be strings, so when we passes the runners
 # list to this container, github passes container command args quoted like this:
@@ -27,9 +27,15 @@ require 'src/github_action_check_run_formatter'
 # ```
 #
 # which works correctly
-runners_index = ARGV.index('-r') + 1
-ARGV.insert(runners_index, ARGV.delete_at(runners_index).split(' '))
+if ARGV.include?('-r')
+  runners_index = ARGV.index('-r') + 1
+  runners = ARGV.at(runners_index)
+  if runners.include?(' ')
+    ARGV.delete_at(runners_index)
+    ARGV.insert(runners_index, runners.split(' '))
+  end
+end
 
-Dir.chdir(ENV.fetch('GITHUB_WORKSPACE')) do
+Dir.chdir(ENV.fetch('GITHUB_WORKSPACE', '/data')) do
   Pronto::CLI.start
 end
