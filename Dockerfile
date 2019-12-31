@@ -13,6 +13,8 @@ RUN apt-get update && \
   yamllint \
   && rm -rf /var/lib/apt/lists/*
 
+RUN gem install bundler
+
 WORKDIR /data
 
 COPY Gemfile* ./
