@@ -1,3 +1,10 @@
+2.3.0 | 2019-12-31
+---
+
+ * Update to bundler 2
+
+ Backwards compatible with bundler 1 projects.
+
 2.2.0 | 2019-12-30
 ---
 
