@@ -23,7 +23,7 @@ inputs:
       origin/master
 runs:
   using: docker
-  image: "docker://docker.io/adwerx/pronto-ruby:2.3.0-rc1"
+  image: "docker://docker.io/adwerx/pronto-ruby:2.3.0-rc2"
   args:
     - run
     - -r
