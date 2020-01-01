@@ -10,8 +10,8 @@ jobs:
     - uses: actions/checkout@v1
     - name: Pronto Run
       uses: ./
-      # with:
-      #   runners: >-
-      #     rubocop bundler_audit rails_schema brakeman
+      with:
+        runners: >-
+          rubocop bundler_audit brakeman yamllint
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

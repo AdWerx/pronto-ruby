@@ -15,14 +15,16 @@ RUN apt-get update && \
 
 RUN gem install bundler
 
-WORKDIR /data
+WORKDIR /runner
 
 COPY Gemfile* ./
 
+ENV BUNDLE_GEMFILE /runner/Gemfile
+
 RUN bundle --jobs 2 --retry 4
 
-ENV PATH $GEM_HOME/bin:$BUNDLE_PATH/gems/bin:$PATH
+COPY . ./
 
-COPY . /runner
+WORKDIR /data
 
 ENTRYPOINT ["/runner/pronto"]
