@@ -17,6 +17,7 @@ The docker image of this Action includes the following [Pronto Runners](https://
 - poper
 - rails_best_practices
 - rails_schema
+- rails_data_schema
 - reek
 - rubocop
 - scss
