@@ -122,6 +122,8 @@ GEM
     pronto-erb_lint (0.1.5)
       erb_lint (~> 0.0.24)
       pronto (> 0.9.0)
+    pronto-eslint_npm (0.10.1)
+      pronto (~> 0.10.0)
     pronto-fasterer (0.10.0)
       fasterer (~> 0.3, >= 0.3.0)
       pronto (~> 0.10.0)
@@ -257,6 +259,7 @@ DEPENDENCIES
   pronto-brakeman (~> 0.10)
   pronto-bundler_audit (~> 0.6)
   pronto-erb_lint (~> 0.1)
+  pronto-eslint_npm (~> 0.10)
   pronto-fasterer (~> 0.10)
   pronto-flay (~> 0.10)
   pronto-poper (~> 0.10)
@@ -279,4 +282,4 @@ DEPENDENCIES
   webmock
 
 BUNDLED WITH
-   2.1.2
+   2.1.4

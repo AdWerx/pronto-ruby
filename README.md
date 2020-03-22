@@ -12,6 +12,7 @@ The docker image of this Action includes the following [Pronto Runners](https://
 
 - brakeman
 - bundler_audit
+- eslint_npm
 - fasterer
 - flay
 - poper
