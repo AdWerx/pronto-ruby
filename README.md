@@ -64,7 +64,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - uses: adwerx/pronto-ruby@v2.2.0
+    - uses: adwerx/pronto-ruby@v2.4
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -74,19 +74,7 @@ With specific runners:
 
 ```yaml
 name: Pronto
-
-on:
-  - push
-  - pull_request
-
-jobs:
-  run:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v1
-    - uses: adwerx/pronto-ruby@2.2.0
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+# ...
       with:
         runners: >-
           rubocop rails_schema yamllint

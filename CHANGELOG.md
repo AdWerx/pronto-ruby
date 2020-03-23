@@ -1,3 +1,8 @@
+2.4.1 | 2020-3-23
+---
+
+ * Adds pronto-rails_data_schema runner (#11)
+
 2.3.0 | 2019-12-31
 ---
 

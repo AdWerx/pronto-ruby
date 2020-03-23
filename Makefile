@@ -9,11 +9,10 @@ test: spec/fixtures/test.git
 spec/fixtures/test.git:
 	tar -zxf spec/fixtures/test.git.tar.gz
 
-tag: image
-	docker tag ${name} ${name}:${TAG}
-	docker tag ${name} ${name}:latest
+# tag: image
+# 	docker tag ${name} ${name}:${TAG}
 
-push: tag
+push: image
 	docker push ${name}:${TAG}
 
 console: spec/fixtures/test.git
