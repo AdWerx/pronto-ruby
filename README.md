@@ -67,7 +67,6 @@ jobs:
     - uses: adwerx/pronto-ruby@v2.4
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
 ```
 
 With specific runners:
@@ -78,6 +77,18 @@ name: Pronto
       with:
         runners: >-
           rubocop rails_schema yamllint
+```
+
+If you want to use `actions/checkout@v2`:
+
+```yaml
+name: Pronto
+# ...
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - run: |
+        git fetch --no-tags --prune origin
 ```
 
 ### Development / Contributions
