@@ -1,27 +1,35 @@
-FROM ruby:2.5
+FROM ruby:2.6-slim
 
 LABEL maintainer="Josh Bielick <jbielick@adwerx.com>"
 
+ENV BUNDLER_VERSION="2.1.4"
+ENV ESLINT_VERSION="6.8.0"
+
+RUN apt-get update && apt-get install -y curl
+RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
+
 RUN apt-get update && \
   apt-get install -y \
-  bash \
   ruby-dev \
   build-essential \
   cmake \
   git \
+  pkg-config \
   openssl \
   yamllint \
+  nodejs \
   && rm -rf /var/lib/apt/lists/*
 
-RUN gem install bundler
+RUN gem install bundler --version "${BUNDLER_VERSION}"
+RUN npm install -g eslint@${ESLINT_VERSION}
 
 WORKDIR /runner
 
 COPY Gemfile* ./
 
-ENV BUNDLE_GEMFILE /runner/Gemfile
+RUN bundle --retry 4
 
-RUN bundle --jobs 2 --retry 4
+ENV BUNDLE_GEMFILE /runner/Gemfile
 
 COPY . ./
 
