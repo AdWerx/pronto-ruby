@@ -1,3 +1,12 @@
+2.5 | 2020-03-24
+---
+
+ * Adds nodejs to the container and `pronto-eslint_npm` runner
+ * Container is now Ruby 2.6
+ * Container is now ubuntu buster slim @ ~850mb
+
+(#14-- thanks @Saicheg !)
+
 2.4.1 | 2020-3-23
 ---
 
