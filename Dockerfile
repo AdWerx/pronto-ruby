@@ -1,4 +1,4 @@
-FROM ruby:2.6-buster
+FROM ruby:2.6-slim
 
 LABEL maintainer="Josh Bielick <jbielick@adwerx.com>"
 
@@ -14,6 +14,7 @@ RUN apt-get update && \
   build-essential \
   cmake \
   git \
+  pkg-config \
   openssl \
   yamllint \
   nodejs \
