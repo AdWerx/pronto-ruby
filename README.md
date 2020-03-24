@@ -65,7 +65,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - uses: adwerx/pronto-ruby@v2.4
+    - uses: adwerx/pronto-ruby@v2.5
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
