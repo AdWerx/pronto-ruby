@@ -212,7 +212,7 @@ GEM
       activesupport
       rack (>= 1.1)
       rubocop (>= 0.72.0)
-    rubocop-rake (0.5.0)
+    rubocop-rake (0.5.1)
       rubocop
     rubocop-rspec (1.37.1)
       rubocop (>= 0.68.1)
