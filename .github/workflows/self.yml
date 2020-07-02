@@ -11,6 +11,7 @@ jobs:
     - name: Pronto Run
       uses: ./
       with:
+        target: origin/main
         runners: >-
           rubocop bundler_audit brakeman yamllint
       env:
