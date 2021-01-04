@@ -64,10 +64,13 @@ jobs:
   run:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-    - uses: adwerx/pronto-ruby@v2.5
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v2
+      - run: git fetch origin master --depth=1
+      - uses: adwerx/pronto-ruby@v2.7
+        with:
+          target: origin/master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
 With specific runners:
@@ -80,16 +83,22 @@ name: Pronto
           rubocop rails_schema yamllint
 ```
 
-If you want to use `actions/checkout@v2`:
+With `eslint_npm` runner:
 
 ```yaml
 name: Pronto
 # ...
-    - uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
-    - run: |
-        git fetch --no-tags --prune origin
+    steps:
+      - uses: actions/checkout@v2
+      - run: git fetch origin master --depth=1
+      - uses: actions/setup-node@v1
+      - run: yarn install --ignore-optional --ignore-scripts --frozen-lockfile --non-interactive
+      - uses: adwerx/pronto-ruby@v2.7
+        with:
+          target: origin/master
+          runners: eslint_npm # ...
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
 ### Development / Contributions
