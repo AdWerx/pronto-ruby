@@ -1,4 +1,4 @@
-FROM ruby:2.6-slim
+FROM ruby:2.7-slim
 
 LABEL maintainer="Josh Bielick <jbielick@adwerx.com>"
 
