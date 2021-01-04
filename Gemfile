@@ -19,6 +19,9 @@ gem 'pronto-fasterer'
 gem 'pronto-scss'
 gem 'pronto-erb_lint', '~>0.1'
 
+# https://github.com/libgit2/rugged/issues/860
+gem 'rugged', '~>0.28.5'
+
 gem 'rubocop-performance', require: false
 gem 'rubocop-minitest', require: false
 gem 'rubocop-rspec', require: false
