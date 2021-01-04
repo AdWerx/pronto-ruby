@@ -67,8 +67,6 @@ jobs:
       - uses: actions/checkout@v2
       - run: git fetch origin master --depth=1
       - uses: adwerx/pronto-ruby@v2.7
-        with:
-          target: origin/master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
@@ -83,19 +81,20 @@ name: Pronto
           rubocop rails_schema yamllint
 ```
 
-With `eslint_npm` runner:
+With `eslint_npm` runner using locally installed eslint:
 
 ```yaml
 name: Pronto
 # ...
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - run: git fetch origin master --depth=1
       - uses: actions/setup-node@v1
       - run: yarn install --ignore-optional --ignore-scripts --frozen-lockfile --non-interactive
       - uses: adwerx/pronto-ruby@v2.7
         with:
-          target: origin/master
           runners: eslint_npm # ...
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
