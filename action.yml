@@ -1,6 +1,8 @@
 name: Pronto Ruby
 author: jbielick@adwerx.com
-description: Your all-in-one Pronto ruby code review automation.
+description: |
+  Run pronto code review runners on your commits and pull requests
+  and get feedback as inline code annotations.
 branding:
   icon: code
   color: red
