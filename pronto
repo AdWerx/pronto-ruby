@@ -6,6 +6,23 @@ require 'pronto'
 require 'pronto/cli'
 require_relative './src/github_action_check_run_formatter'
 
+def silence_warnings(&block)
+  warn_level = $VERBOSE
+  $VERBOSE = nil
+  result = block.call
+  $VERBOSE = warn_level
+  result
+end
+
+silence_warnings do
+  Pronto::Formatter.const_set(
+    :FORMATTERS,
+    Pronto::Formatter::FORMATTERS.merge(
+      'github_action_check_run' => Pronto::Formatter::GithubActionCheckRunFormatter
+    )
+  )
+end
+
 # github action inputs can only be strings, so when we passes the runners
 # list to this container, github passes container command args quoted like this:
 # `docker run ...  "run" "-r" "rubocop rails_schema" ...`

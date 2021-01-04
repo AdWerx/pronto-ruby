@@ -5,10 +5,6 @@ module Pronto
   module Formatter
     class GithubActionCheckRunFormatter < Base
 
-      NAME = 'github_action_check_run'.freeze
-
-      Formatter.const_set(:FORMATTERS, FORMATTERS.merge(NAME => self))
-
       attr_accessor :messages, :repo, :sha, :check_run
 
       def format(messages, repo, _)
