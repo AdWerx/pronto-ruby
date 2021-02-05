@@ -23,6 +23,7 @@ The docker image of this Action includes the following [Pronto Runners](https://
 - rubocop
 - scss
 - yamllint
+- stylelint
 
 # Inputs
 

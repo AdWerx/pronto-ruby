@@ -18,6 +18,7 @@ gem 'pronto-flay'
 gem 'pronto-fasterer'
 gem 'pronto-scss'
 gem 'pronto-erb_lint', '~>0.1'
+gem 'pronto-stylelint'
 
 # https://github.com/libgit2/rugged/issues/860
 gem 'rugged', '~>0.28.5'
