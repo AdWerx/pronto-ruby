@@ -33,7 +33,7 @@ GEM
     bundler-audit (0.7.0.1)
       bundler (>= 1.2.0, < 3)
       thor (>= 0.18, < 2)
-    climate_control (0.2.0)
+    climate_control (1.0.0)
     code_analyzer (0.5.2)
       sexp_processor
     codeclimate-engine-rb (0.4.1)
