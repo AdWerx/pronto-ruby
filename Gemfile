@@ -16,7 +16,7 @@ gem 'pronto-reek', require: false
 gem 'pronto-flay', require: false
 gem 'pronto-fasterer', require: false
 gem 'pronto-scss', require: false
-gem 'pronto-erb_lint', '~>0.1', require: false
+gem 'pronto-erb_lint', require: false
 gem 'pronto-stylelint', require: false
 
 gem 'rubocop-performance', require: false

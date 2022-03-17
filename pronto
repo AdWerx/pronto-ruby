@@ -2,9 +2,9 @@
 
 require 'rubygems'
 require 'bundler/setup'
-require 'pronto'
-require 'pronto/cli'
+Bundler.require(:default)
 require_relative './src/github_action_check_run_formatter'
+require 'pronto/cli'
 
 # github action inputs can only be strings, so when we passes the runners
 # list to this container, github passes container command args quoted like this:

@@ -20,7 +20,7 @@ Finally, create a release through GitHub's UI with a version bump and include CH
 
 # Tests
 
-Using `bundler/setup` in the test environment clears the load path for ruby, which prevents us from requiring gems that are already installed like `pronto` and the runners. For this reason, it is important not to use `Bundler.require` or `bundler/setup` in the test environment so that we can require gems from both the Gemfile _and_ those installed in the _base image_.
+Unzip the test git archive: `make spec/fixtures/test.git`
 
 The test suite uses RSpec and WebMock.
 

@@ -1,6 +1,3 @@
-require 'pronto/cli'
-require 'src/github_action_check_run_formatter'
-
 RSpec.describe Pronto::Formatter::GithubActionCheckRunFormatter do
 
   STUBBED_ENV = {
@@ -14,10 +11,6 @@ RSpec.describe Pronto::Formatter::GithubActionCheckRunFormatter do
     end
   end
 
-  after do
-    Pronto::Runner.repository.clear
-  end
-
   context 'when the runner is rubocop' do
     it 'posts a check run with annotations' do
       check_runs_url = "https://api.github.com/repos/Codertocat/Hello-World/check-runs"
@@ -25,13 +18,10 @@ RSpec.describe Pronto::Formatter::GithubActionCheckRunFormatter do
         {status: 201, body: '{"id": 1}'},
         {status: 201, body: '{"id": 2}'},
       )
+      allow(Pronto::Runner).to receive(:repository).and_return([Pronto::Rubocop])
 
       Dir.chdir('spec/fixtures/test.git') do
-        Pronto::CLI.start(%w(
-          run
-          -r rubocop
-          -f github_action_check_run
-        ))
+        Pronto::CLI.start(%w(run -f github_action_check_run))
       end
 
       expect(
@@ -115,13 +105,10 @@ RSpec.describe Pronto::Formatter::GithubActionCheckRunFormatter do
         {status: 201, body: '{"id": 1}'},
         {status: 201, body: '{"id": 2}'},
       )
+      allow(Pronto::Runner).to receive(:repository).and_return([Pronto::YAMLLint])
 
       Dir.chdir('spec/fixtures/test.git') do
-        Pronto::CLI.start(%w(
-          run
-          -r yamllint
-          -f github_action_check_run
-        ))
+        Pronto::CLI.start(%w(run -f github_action_check_run))
       end
 
       expect(
@@ -170,13 +157,10 @@ RSpec.describe Pronto::Formatter::GithubActionCheckRunFormatter do
       {status: 201, body: '{"id": 1}'},
       {status: 201, body: '{"id": 2}'},
     )
+    allow(Pronto::Runner).to receive(:repository).and_return([Pronto::Poper])
 
     Dir.chdir('spec/fixtures/test.git') do
-      Pronto::CLI.start(%w(
-        run
-        -r poper
-        -f github_action_check_run
-      ))
+      Pronto::CLI.start(%w(run -f github_action_check_run))
     end
 
     expect(

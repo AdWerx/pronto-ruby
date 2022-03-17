@@ -1,3 +1,21 @@
+4.0 | 2022-03-17
+---
+
+**BREAKING CHANGES:**
+
+ * Pronto is upgraded to 0.11, the following runners are not yet compatible:
+   - pronto-poper
+   - pronto-rails_data_schema
+
+Changes:
+
+ * Upgrades node.js to 14.x
+ * Upgrades eslint_npm to 7.32.0
+ * Upgrades stylelint to 13.13.1
+ * Upgrades Bundler to 2.3.8
+ * Upgrades Rubocop to 1.26.0
+ * Upgrades all runners and dependencies
+
 2.5 | 2020-03-24
 ---
 
