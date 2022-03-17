@@ -12,9 +12,9 @@ See the `Makefile` for more information.
 
 The ruby and pronto installation is done in the `Dockerfile` container image. Thus, pronto and runners are portable and can be run easily locally or otherwise. The code and formatter for the GitHub Action itself are added to the container image.
 
-After making modifications, a tag of `image-vX.X.X` should be created to trigger a dockerhub build.
+After making modifications, use `TAG=x.x make push` to push the image to the registry.
 
-Once the new image is built and available in dockerhub, the image tag in `action.yml` should be updated to point to it.
+Once the new image is built and available in the registry, the image tag in `action.yml` should be updated to point to it.
 
 Finally, create a release through GitHub's UI with a version bump and include CHANGELOG details in the release description.
 
