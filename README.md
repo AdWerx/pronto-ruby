@@ -15,10 +15,10 @@ The docker image of this Action includes the following [Pronto Runners](https://
 - eslint_npm
 - fasterer
 - flay
-- poper
+- ~~poper~~ (removed—no support for pronto 0.11)
 - rails_best_practices
 - rails_schema
-- rails_data_schema
+- ~~rails_data_schema~~ (removed—no support for pronto 0.11)
 - reek
 - rubocop
 - scss

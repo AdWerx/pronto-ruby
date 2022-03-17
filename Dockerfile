@@ -2,12 +2,13 @@ FROM ruby:2.7-slim
 
 LABEL maintainer="Josh Bielick <jbielick@adwerx.com>"
 
-ENV BUNDLER_VERSION="2.1.4"
-ENV ESLINT_VERSION="6.8.0"
-ENV STYLELINT_VERSION="13.9.0"
+ARG BUNDLER_VERSION="2.3.8"
+ARG ESLINT_VERSION="7.32.0"
+ARG STYLELINT_VERSION="13.13.1"
+ARG NODE_VERSION=14
 
 RUN apt-get update && apt-get install -y curl
-RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_${NODE_VERSION}.x | bash -
 
 RUN apt-get update && \
   apt-get install -y \

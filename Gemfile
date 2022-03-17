@@ -4,24 +4,20 @@
 source 'https://rubygems.org'
 
 gem 'pronto'
-gem 'pronto-rubocop'
-gem 'pronto-brakeman'
-gem 'pronto-bundler_audit'
-gem 'pronto-eslint_npm'
-gem 'pronto-rails_best_practices'
-gem 'pronto-rails_schema'
-gem 'pronto-rails_data_schema'
-gem 'pronto-poper'
-gem 'pronto-yamllint'
-gem 'pronto-reek'
-gem 'pronto-flay'
-gem 'pronto-fasterer'
-gem 'pronto-scss'
-gem 'pronto-erb_lint', '~>0.1'
-gem 'pronto-stylelint'
-
-# https://github.com/libgit2/rugged/issues/860
-gem 'rugged', '~>0.99.0'
+gem 'pronto-rubocop', require: false
+gem 'pronto-brakeman', require: false
+gem 'pronto-bundler_audit', require: false
+gem 'pronto-eslint_npm', require: false
+gem 'pronto-rails_best_practices', require: false
+gem 'pronto-rails_schema', require: false
+# gem 'pronto-poper', require: false
+gem 'pronto-yamllint', require: false
+gem 'pronto-reek', require: false
+gem 'pronto-flay', require: false
+gem 'pronto-fasterer', require: false
+gem 'pronto-scss', require: false
+gem 'pronto-erb_lint', '~>0.1', require: false
+gem 'pronto-stylelint', require: false
 
 gem 'rubocop-performance', require: false
 gem 'rubocop-minitest', require: false

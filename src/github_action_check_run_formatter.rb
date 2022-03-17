@@ -83,3 +83,16 @@ module Pronto
     end
   end
 end
+
+begin
+  warn_level = $VERBOSE
+  $VERBOSE = nil
+  Pronto::Formatter.const_set(
+    :FORMATTERS,
+    Pronto::Formatter::FORMATTERS.merge(
+      'github_action_check_run' => Pronto::Formatter::GithubActionCheckRunFormatter
+    )
+  )
+ensure
+  $VERBOSE = warn_level
+end
