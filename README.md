@@ -67,7 +67,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: git fetch origin master --depth=1
-      - uses: adwerx/pronto-ruby@v2.8
+      - uses: adwerx/pronto-ruby@v4.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
