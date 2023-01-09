@@ -1,7 +1,7 @@
 name=adwerx/pronto-ruby
 
 image:
-	docker build -f Dockerfile . -t ${name}:${TAG} -t ${name}:latest
+	docker buildx build --platform linux/amd64,linux/arm64 -t ${name}:${TAG} -o type=registry .
 
 test: spec/fixtures/test.git
 	docker run -v "${CURDIR}:/runner" --workdir /runner --entrypoint /runner/dev_entrypoint.sh --rm ${name}:latest rspec
