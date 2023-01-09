@@ -28,7 +28,7 @@ GEM
     bundler-audit (0.9.0.1)
       bundler (>= 1.2.0, < 3)
       thor (~> 1.0)
-    climate_control (1.0.1)
+    climate_control (1.2.0)
     code_analyzer (0.5.5)
       sexp_processor
     coderay (1.1.3)
