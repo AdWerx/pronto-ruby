@@ -7,11 +7,11 @@ ARG ESLINT_VERSION="7.32.0"
 ARG STYLELINT_VERSION="13.13.1"
 ARG NODE_VERSION=14
 
-RUN apt-get update && apt-get install -y curl
+RUN apt-get update && apt-get install --no-install-recommends -y curl && rm -rf /var/lib/apt/lists/*;
 RUN curl -sL https://deb.nodesource.com/setup_${NODE_VERSION}.x | bash -
 
 RUN apt-get update && \
-  apt-get install -y \
+  apt-get install --no-install-recommends -y \
   ruby-dev \
   build-essential \
   cmake \
@@ -23,8 +23,8 @@ RUN apt-get update && \
   && rm -rf /var/lib/apt/lists/*
 
 RUN gem install bundler --version "${BUNDLER_VERSION}"
-RUN npm install -g eslint@${ESLINT_VERSION}
-RUN npm install stylelint@${STYLELINT_VERSION}
+RUN npm install -g eslint@${ESLINT_VERSION} && npm cache clean --force;
+RUN npm install stylelint@${STYLELINT_VERSION} && npm cache clean --force;
 
 WORKDIR /runner
 
