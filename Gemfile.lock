@@ -1,13 +1,13 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    actionview (7.0.4)
-      activesupport (= 7.0.4)
+    actionview (7.0.4.1)
+      activesupport (= 7.0.4.1)
       builder (~> 3.1)
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.1, >= 1.2.0)
-    activesupport (7.0.4)
+    activesupport (7.0.4.1)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
@@ -15,12 +15,11 @@ GEM
     addressable (2.8.1)
       public_suffix (>= 2.0.2, < 6.0)
     ast (2.4.2)
-    better_html (1.0.16)
-      actionview (>= 4.0)
-      activesupport (>= 4.0)
+    better_html (2.0.1)
+      actionview (>= 6.0)
+      activesupport (>= 6.0)
       ast (~> 2.0)
       erubi (~> 1.4)
-      html_tokenizer (~> 0.0.6)
       parser (>= 2.4)
       smart_properties
     brakeman (5.2.1)
@@ -38,10 +37,9 @@ GEM
       rexml
     crass (1.0.6)
     diff-lcs (1.5.0)
-    erb_lint (0.0.37)
+    erb_lint (0.3.1)
       activesupport
-      better_html (~> 1.0.7)
-      html_tokenizer
+      better_html (>= 2.0.1)
       parser (>= 2.7.1.4)
       rainbow
       rubocop
@@ -65,7 +63,6 @@ GEM
       httparty (~> 0.20)
       terminal-table (>= 1.5.1)
     hashdiff (1.0.1)
-    html_tokenizer (0.0.7)
     httparty (0.21.0)
       mini_mime (>= 1.0.0)
       multi_xml (>= 0.5.2)
@@ -105,9 +102,9 @@ GEM
     pronto-bundler_audit (0.7.0)
       bundler-audit (~> 0.8)
       pronto (~> 0.11)
-    pronto-erb_lint (0.1.5)
-      erb_lint (~> 0.0.24)
-      pronto (> 0.9.0)
+    pronto-erb_lint (0.1.6)
+      erb_lint (~> 0.1, >= 0.1.1)
+      pronto (~> 0.9, > 0.9.0)
     pronto-eslint_npm (0.11.0)
       pronto (~> 0.11.0)
     pronto-fasterer (0.11.1)
@@ -146,7 +143,7 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.4.4)
       loofah (~> 2.19, >= 2.19.1)
-    rails_best_practices (1.23.1)
+    rails_best_practices (1.23.2)
       activesupport
       code_analyzer (~> 0.5.5)
       erubis
