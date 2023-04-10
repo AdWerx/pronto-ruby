@@ -10,6 +10,7 @@ gem 'pronto-bundler_audit', require: false
 gem 'pronto-eslint_npm', require: false
 gem 'pronto-rails_best_practices', require: false
 gem 'pronto-rails_schema', require: false
+gem 'pronto-rails_data_schema', require: false
 # gem 'pronto-poper', require: false
 gem 'pronto-yamllint', require: false
 gem 'pronto-reek', require: false
