@@ -1,7 +1,10 @@
 name: Pronto
 
 on:
-  - push
+  push:
+  pull_request:
+    branches:
+      - main
 
 jobs:
   run:
